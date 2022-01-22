@@ -21,15 +21,15 @@
 
     <header>
       <div class="container">
-        <h1>cibernética y contagio</h1>
+        <h1 class="alter">cibernética y contagio</h1>
         <h2>
             <img src="rata.png" style="float:left; margin: 0 15px 0 0; border:1px #b5e853 solid;" />
-            nupcias en contra de la sociedad: <u>hechicería y propagación</u>.<br/><br/>
+            <span class="alter">nupcias en contra de la sociedad: <u>hechicería y propagación</u>.<br/><br/>
             la magia se apunta a la <u>producción de consecuencias no anticipadas</u>.<br/><br/>
             la hechicería puede definirse como la ingeniería de lo inesperado y de lo que no tiene precedente; <u>el arte de evitar lo probable</u>.
             <br/><br/>
             <i>"así es como operamos lxs hechicerxs. no siguiendo un orden lógico, más bien siguiendo consistencias o compatibilidades ilógicas."</i><br/><br/>
-            lo real, lejos de existir opuesto a lo artificial, esta compuesto de ello.
+            lo real, lejos de existir opuesto a lo artificial, esta compuesto de ello.</span>
         </h2>
 
         
@@ -40,30 +40,59 @@
       <section id="main_content">
         
         <div style="width:450px; height:300px; background:url('estatica.gif'); padding:15px; float:left; margin-right:15px;">
-            <h3 style="font-size:30px;">[ddcaz]</h3>
+            <h3 class="alter"  style="font-size:30px;">[ddcaz]</h3>
             <br/><br/><br/><br/><br/><br/><br/>
             <audio src="https://oursignal-prod.nyc3.cdn.digitaloceanspaces.com/podcasts/9d6b32e7-10df-4479-822c-982d9b45c68f/episodes/43157248-0562-4d54-8342-6d80d79fa9b7/audio.mp3?t=20220122T215835Z" class="audio-preview w-100" controls=""></audio>
         </div>
         
-        recuento de experiencias digitales:<br/>desde inicios hasta la actualidad, pasando por disfrutes, miedos y ansiedades.<br/><br/>
-        grabado en 2022.01.09<br/>
-        <a href="https://oursignal-prod.nyc3.cdn.digitaloceanspaces.com/podcasts/9d6b32e7-10df-4479-822c-982d9b45c68f/episodes/43157248-0562-4d54-8342-6d80d79fa9b7/audio.mp3?t=20220122T215835Z">link de descarga (mp3)</a>
+        <span class="alter">recuento de experiencias digitales:<br/>desde inicios hasta la actualidad, pasando por disfrutes, miedos y ansiedades.<br/><br/>
+        grabado en 2022.01.09</span><br/>
+        <a href="https://oursignal-prod.nyc3.cdn.digitaloceanspaces.com/podcasts/9d6b32e7-10df-4479-822c-982d9b45c68f/episodes/43157248-0562-4d54-8342-6d80d79fa9b7/audio.mp3?t=20220122T215835Z" class="alter">link de descarga (mp3)</a>
         
         <br clear="all" />
       </section>
     </div>
     
     <div class="container" style="border-top: 1px dashed #b5e853; padding: 20px 20px;">
-      <h3>links útiles</h3>
-      <blockquote><a href="https://www.jstor.org/stable/20647172" target="_new">la sexta extinción</a></blockquote>
-      <blockquote><a href="https://citas.in/frases/70192-michail-bakunin-la-pasion-por-la-destruccion-es-tambien-la-pasion/" target="_new">destrucción creativa</a></blockquote>
-      <blockquote><a href="https://deleuzefilosofia.blogspot.com/2010/01/potencia-de-lo-falso.html" target="_new">potencia de lo falso</a></blockquote>
-      <blockquote><a href="https://es.wikipedia.org/wiki/Pataf%C3%ADsica" target="_new">patafísica</a></blockquote>
-      <blockquote><a href="http://www.thegreatunfriending.com/handbook/" target="_new">the great unfriending</a></blockquote>
-      <blockquote><a href="https://simone.computer/" target="_new">simone's computer</a></blockquote>
+      <h3 class="alter">links útiles</h3>
+      <blockquote><a href="https://www.jstor.org/stable/20647172" target="_new" class="alter">la sexta extinción</a></blockquote>
+      <blockquote><a href="https://citas.in/frases/70192-michail-bakunin-la-pasion-por-la-destruccion-es-tambien-la-pasion/" target="_new" class="alter">destrucción creativa</a></blockquote>
+      <blockquote><a href="https://deleuzefilosofia.blogspot.com/2010/01/potencia-de-lo-falso.html" target="_new" class="alter">potencia de lo falso</a></blockquote>
+      <blockquote><a href="https://es.wikipedia.org/wiki/Pataf%C3%ADsica" target="_new" class="alter">patafísica</a></blockquote>
+      <blockquote><a href="https://www.youtube.com/watch?v=rpF4TKOHTiU" target="_new" class="alter">motor psico</a></blockquote>
+      <br/>
+      <blockquote><a href="http://www.thegreatunfriending.com/handbook/" target="_new" class="alter">the great unfriending</a></blockquote>
+      <blockquote><a href="https://simone.computer/" target="_new" class="alter">simone's computer</a></blockquote>
       <blockquote>?</blockquote>
     </div>
 
+    <script>
+        String.prototype.replaceAt = function(index, replacement) {
+            return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+        }
+        
+        const collection = document.getElementsByClassName("alter");
+        
+        function bbx(t, c) {
+            if(c!=-1) collection[c].innerHTML = t;
+            
+            var e = Math.floor(Math.random() * collection.length);
+            var html = collection[e].innerHTML;
+            var o = html;
+            
+            var i = Math.floor(Math.random() * html.length);
+            var r = String.fromCharCode( Math.random() * 255 );
+            r = "🈁";
+            html = html.replaceAt(i, r);
+            collection[e].innerHTML = html;
+            
+            setTimeout(function() {
+                bbx(o, e)
+            }, 1 + (Math.random() * 1000));
+        }
+        
+        bbx('', -1);
+    </script>
     
   </body>
 </html>
