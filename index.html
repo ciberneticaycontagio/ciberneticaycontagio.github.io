@@ -55,14 +55,14 @@
     
     <div class="container" style="border-top: 1px dashed #b5e853; padding: 20px 20px;">
       <h3 class="alter">links útiles</h3>
-      <blockquote><a href="https://www.jstor.org/stable/20647172" target="_new" class="alter">la sexta extinción</a></blockquote>
-      <blockquote><a href="https://citas.in/frases/70192-michail-bakunin-la-pasion-por-la-destruccion-es-tambien-la-pasion/" target="_new" class="alter">destrucción creativa</a></blockquote>
-      <blockquote><a href="https://deleuzefilosofia.blogspot.com/2010/01/potencia-de-lo-falso.html" target="_new" class="alter">potencia de lo falso</a></blockquote>
-      <blockquote><a href="https://es.wikipedia.org/wiki/Pataf%C3%ADsica" target="_new" class="alter">patafísica</a></blockquote>
-      <blockquote><a href="https://www.youtube.com/watch?v=rpF4TKOHTiU" target="_new" class="alter">motor psico</a></blockquote>
+      <blockquote><a href="https://www.jstor.org/stable/20647172" target="_new">la sexta extinción</a></blockquote>
+      <blockquote><a href="https://citas.in/frases/70192-michail-bakunin-la-pasion-por-la-destruccion-es-tambien-la-pasion/" target="_new">destrucción creativa</a></blockquote>
+      <blockquote><a href="https://deleuzefilosofia.blogspot.com/2010/01/potencia-de-lo-falso.html" target="_new">potencia de lo falso</a></blockquote>
+      <blockquote><a href="https://es.wikipedia.org/wiki/Pataf%C3%ADsica" target="_new">patafísica</a></blockquote>
+      <blockquote><a href="https://www.youtube.com/watch?v=rpF4TKOHTiU" target="_new">motor psico</a></blockquote>
       <br/>
-      <blockquote><a href="http://www.thegreatunfriending.com/handbook/" target="_new" class="alter">the great unfriending</a></blockquote>
-      <blockquote><a href="https://simone.computer/" target="_new" class="alter">simone's computer</a></blockquote>
+      <blockquote><a href="http://www.thegreatunfriending.com/handbook/" target="_new">the great unfriending</a></blockquote>
+      <blockquote><a href="https://simone.computer/" target="_new">simone's computer</a></blockquote>
       <blockquote>?</blockquote>
     </div>
 
@@ -71,7 +71,23 @@
             return this.substr(0, index) + replacement + this.substr(index + replacement.length);
         }
         
+        const rt = 10;
         const collection = document.getElementsByClassName("alter");
+        
+        function ii(i, e, j, html) {
+            var r = String.fromCharCode( Math.random() * 1024 );
+            //r = "🈁";
+            //console.log(html);
+            html = html.replaceAt(i, r);
+            collection[e].innerHTML = html;
+            
+            j++;
+            if(j < rt) {
+                setTimeout(function() {
+                    ii(i, e, j, html);
+                }, 100);
+            }
+        }
         
         function bbx(t, c) {
             if(c!=-1) collection[c].innerHTML = t;
@@ -81,14 +97,13 @@
             var o = html;
             
             var i = Math.floor(Math.random() * html.length);
-            var r = String.fromCharCode( Math.random() * 255 );
-            r = "🈁";
-            html = html.replaceAt(i, r);
-            collection[e].innerHTML = html;
+            
+            var j=0;
+            ii(i, e, j, html);
             
             setTimeout(function() {
                 bbx(o, e)
-            }, 1 + (Math.random() * 1000));
+            }, (100*rt) +11 + (Math.random() * 700));
         }
         
         bbx('', -1);
